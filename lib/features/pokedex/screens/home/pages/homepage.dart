@@ -12,6 +12,45 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context){
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(color: Colors.black),
+        title: const Padding(
+          padding: EdgeInsets.only(left: 10),
+          child: Text(
+            'Pokedex',
+            style: TextStyle(
+                color: Colors.black,
+                    fontSize: 24,
+            ),),
+        ),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountEmail: Text("vmadevops@gmail.com"),
+              accountName: Text("Victor Macedo"),
+              currentAccountPicture: CircleAvatar(
+                child: Text("VM"),
+              ),
+
+            ),
+            GestureDetector(
+              child: ListTile(
+                leading: Icon(Icons.favorite),
+                title: Text("Favoritos"),
+                onTap: () {
+                  Navigator.pop(context);
+                  //Navegar para outra página
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: GridView.count(

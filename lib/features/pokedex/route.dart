@@ -19,7 +19,7 @@ class PokedexRoute extends StatelessWidget {
           });
 
         }
-        if(settings.name == '/details') {
+        if(settings.name == '/favorite') {
           return MaterialPageRoute(builder: (context) {
             return DetailContainer(
               repository: repository,

@@ -11,8 +11,8 @@ import '../../home/pages/home_loading.dart';
 import '../../home/pages/homepage.dart';
 
 class DetailArguments {
-  DetailArguments({required this.name});
-  final String name;
+  DetailArguments({required this.pokemon});
+  final Pokemon pokemon;
 }
 
 class DetailContainer extends StatelessWidget {
@@ -29,7 +29,7 @@ class DetailContainer extends StatelessWidget {
           }
 
           if(snapshot.connectionState == ConnectionState.done && snapshot.hasData){
-            return DetailPage(name: arguments.name, list: snapshot.data!);
+            return DetailPage(pokemon: arguments.pokemon, list: snapshot.data!);
           }
 
           if(snapshot.hasError){
