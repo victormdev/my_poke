@@ -3,6 +3,7 @@ import 'package:my_poke/common/repositories/pokemon_repository.dart';
 import 'package:my_poke/features/home/pages/home_error.dart';
 import 'package:my_poke/features/home/pages/home_loading.dart';
 import 'package:my_poke/features/home/pages/homepage.dart';
+import '../../../common/error/failure.dart';
 import '../../../common/models/pokemon.dart';
 
 class HomeContainer extends StatelessWidget {
@@ -22,7 +23,9 @@ class HomeContainer extends StatelessWidget {
       }
 
       if(snapshot.hasError){
-        return HomeError(error: snapshot.error.toString());
+        return HomeError(
+            error: (snapshot.error as Failure).message!
+        );
       }
 
       return Container();
