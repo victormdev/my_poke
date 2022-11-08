@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_poke/common/repositories/pokemon_repository.dart';
 
 import 'features/home/container/home_container.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: HomeContainer(),
+      home: HomeContainer(repository: PokemonRepository(),),
     );
   }
 }

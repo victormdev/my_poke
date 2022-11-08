@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:my_poke/common/repositories/pokemon_repository.dart';
 import 'package:my_poke/features/home/pages/home_error.dart';
 import 'package:my_poke/features/home/pages/home_loading.dart';
 import 'package:my_poke/features/home/pages/homepage.dart';
 import '../../../common/models/pokemon.dart';
 
 class HomeContainer extends StatelessWidget {
-  const HomeContainer({Key? key}) : super(key: key);
-
+  const HomeContainer({Key? key, required this.repository}) : super(key: key);
+  final IPokemonRepository repository;
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<Pokemon>>(
-        future: ,
+        future: repository.getAllPokemons(),
         builder: (context, snapshot) {
       if(snapshot.connectionState == ConnectionState.waiting){
         return HomeLoading();
