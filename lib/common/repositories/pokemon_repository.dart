@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:my_poke/common/consts/api_consts.dart';
+import 'package:my_poke/common/error/failure.dart';
 import 'package:my_poke/common/models/pokemon.dart';
 
 abstract class IPokemonRepository{
@@ -18,9 +19,9 @@ class PokemonRepository implements IPokemonRepository{
       final response = await dio.get(ApiConsts.allPokemonsURL);
       final json = jsonDecode(response.data) as Map<String, dynamic>;
       final list = json['pokemon'] as List<Map<String, dynamic>>;
-      list.map((e) => null)
+      return list.map((e) => Pokemon.fromMap(e)).toList();
     } catch(e){
-
+      throw Failure(message: 'Não foi possível carregar os dados');
     }
   }
 }

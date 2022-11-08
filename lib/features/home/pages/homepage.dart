@@ -9,7 +9,14 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context){
     return Scaffold(
-
+      body: ListView.builder(
+        itemCount: list.length,
+          itemBuilder: (BuildContext context, int index){
+            return ListTile(
+              title: Text(list[index].name),
+            );
+          }
+      ),
     );
   }
 }
