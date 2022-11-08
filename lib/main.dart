@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'features/home/pages/homepage.dart';
+
+import 'features/home/container/home_container.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: HomePage(list: [],),
+      home: HomeContainer(),
     );
   }
 }
