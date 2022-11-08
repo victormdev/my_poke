@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../common/models/pokemon.dart';
+import '/../../common/models/pokemon.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key, required this.list}) : super (key: key);
