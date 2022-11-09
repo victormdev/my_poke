@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:my_poke/features/pokedex/screens/details/container/detail_container.dart';
 import 'package:my_poke/features/pokedex/screens/home/pages/widgets/pokemon_item_widget.dart';
 
+import '../../../../../common/models/favorite_page_model.dart';
+import '../../details/pages/detail_page.dart';
 import '/../../common/models/pokemon.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key, required this.list, required this.onItemTap}) : super (key: key);
   final List<Pokemon> list;
   final Function(String, DetailArguments) onItemTap;
+
+  get pokemon => pokemon;
 
   @override
   Widget build(BuildContext context){
@@ -30,7 +34,7 @@ class HomePage extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            UserAccountsDrawerHeader(
+            const UserAccountsDrawerHeader(
               accountEmail: Text("vmadevops@gmail.com"),
               accountName: Text("Victor Macedo"),
               currentAccountPicture: CircleAvatar(
@@ -38,15 +42,15 @@ class HomePage extends StatelessWidget {
               ),
 
             ),
-            GestureDetector(
-              child: ListTile(
-                leading: Icon(Icons.favorite),
-                title: Text("Favoritos"),
-                onTap: () {
-                  Navigator.pop(context);
-                  //Navegar para outra página
-                },
-              ),
+            ListTile(
+              leading: Icon(Icons.favorite),
+              title: Text("Favoritos"),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const FavoritePage()),
+                );
+              },
             ),
           ],
         ),

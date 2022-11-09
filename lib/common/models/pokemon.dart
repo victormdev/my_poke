@@ -6,12 +6,13 @@ class Pokemon {
   final List<String> type;
   final int id;
   final String num;
+
   
   factory Pokemon.fromMap(Map<String, dynamic> json){
     return Pokemon(
         name: json['name'],
         image: json['img'], 
-        id: json['id'], 
+        id: json['id'],
         num: json['num'],
         type: (json['type'] as List<dynamic>).map((e) => e as String).toList()
     );

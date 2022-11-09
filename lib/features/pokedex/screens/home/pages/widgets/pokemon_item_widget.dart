@@ -59,6 +59,7 @@ class PokemonItemWidget extends StatelessWidget {
               right: 1,
               child: Image.network(pokemon.image)
           ),
+
           Container(
           padding: EdgeInsets.all(10),
           child: Column(
